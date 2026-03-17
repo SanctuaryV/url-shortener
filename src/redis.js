@@ -64,8 +64,14 @@ const redis = {
         return null;
       }
       try {
-        const { url, createdAt, enabled } = JSON.parse(raw);
-        return { code, url, createdAt, enabled: enabled !== false };
+        const parsed = JSON.parse(raw);
+        return {
+          code,
+          url: parsed.url,
+          createdAt: parsed.createdAt,
+          enabled: parsed.enabled !== false,
+          clicks: parsed.clicks ?? 0
+        };
       } catch {
         return { code, url: raw, createdAt: null, clicks: 0 };
       }
