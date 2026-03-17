@@ -45,7 +45,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      # TODO: Add step to login to Docker Hub
       # Hint: You need to set DOCKERHUB_USERNAME and DOCKERHUB_TOKEN in repository secrets
 
       - name: Extract student ID and generate build time
