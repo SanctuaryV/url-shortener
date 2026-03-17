@@ -11,9 +11,7 @@ COPY package*.json ./
 RUN npm ci --only=production
 
 # Copy application source
-# { แก้ไขให้ถูกต้อง }
-
-COPY student_id.txt ./
+COPY . .
 
 # Read student ID from file
 RUN STUDENT_ID=$(cat student_id.txt) && \
@@ -49,4 +47,4 @@ EXPOSE 3000
 ENV NODE_ENV=production
 
 # Start the application
-# { แก้ไขให้ถูกต้อง }
+CMD ["node", "src/index.js"]
